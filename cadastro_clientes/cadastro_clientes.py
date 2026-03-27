@@ -7,17 +7,43 @@ quando necessario pode remover clientes da lista.
 """
 
 def adicionar_cliente(clientes):
-    nome = input("\nDigite o nome: ")
-    telefone = input("Digite o número de telefone: ")
-    email = input("Digite o email: ")
+    while True:
+        nome = input("\nDigite o nome: ")
+        
+        if nome.strip() == "":
+            print("\nNome inválido")
+            input("Pressione ENTER para tentar novamente...")
+            continue
 
-    cliente = {
-        "nome": nome,
-        "telefone": telefone,
-        "email": email
-    }
+        telefone = (input("Digite o número de telefone: "))
 
-    clientes.append(cliente)
+        if not telefone.isdigit() or len(telefone) < 10 or len(telefone) > 11:
+            print("Número inválido")
+            input("Pressione ENTER para tentar novamente...")
+            continue
+
+        email = input("Digite o email: ")
+
+        if "@" not in email or "." not in email:
+            print("Email inválido")
+            input("Pressione ENTER para tentar novamente...")
+            continue
+
+        partes_email = email.split("@")
+
+        if partes_email[0] == "" or partes_email[1] == "":
+            print("Email inválido")
+            input("Pressione ENTER para tentar novamente...")
+            continue
+
+        cliente = {
+            "nome": nome,
+            "telefone": telefone,
+            "email": email
+        }
+
+        clientes.append(cliente)
+        break
     
 
 def remover_cliente(clientes):
