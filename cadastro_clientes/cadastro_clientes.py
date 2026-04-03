@@ -55,10 +55,10 @@ def remover_cliente(clientes):
         encontrado = False
 
         for i, cliente in enumerate(clientes):
-            if cliente["nome"] == nome_remover:
+            if cliente['nome'] == nome_remover:
                 clientes.pop(i)
 
-                print(f"\nO cliente {cliente["nome"]} foi removido")
+                print(f"\nO cliente {cliente['nome']} foi removido")
                 encontrado = True
                 break
 
@@ -74,7 +74,7 @@ def mostrar_clientes(clientes):
         print("\nClientes cadastrados:\n")
 
         for i, cliente in enumerate(clientes):
-            print(f"{i + 1} - Nome: {cliente["nome"]} - Telefone: {cliente["telefone"]} - Email: {cliente["email"]}\n")
+            print(f"{i + 1} - Nome: {cliente['nome']} - Telefone: {cliente['telefone']} - Email: {cliente['email']}\n")
 
     input("Pressione ENTER para continuar...")
 
